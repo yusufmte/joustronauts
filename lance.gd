@@ -4,7 +4,7 @@ export var acceleration = 400
 export var max_speed = 1000
 export var reverse_speed = 150
 export var deceleration = 800
-export var rot_speed = 120
+export var rot_speed = 4
 
 var velocity = Vector2.ZERO
 
@@ -19,7 +19,10 @@ func _process(delta):
 		velocity.y += acceleration * delta
 	if Input.is_action_pressed("lanceP_reverse"):
 		velocity.y -= acceleration * delta
-		
+	if Input.is_action_pressed("lanceP_rot_CCW"):
+		rotation -= rot_speed * delta
+	if Input.is_action_pressed("lanceP_rot_CW"):
+		rotation += rot_speed * delta
 	
 	if velocity != Vector2.ZERO:
 		position.y -= velocity.y * delta
