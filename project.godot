@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Joustronauts"
-run/main_scene="res://lance.tscn"
+run/main_scene="res://Joust.tscn"
 config/icon="res://icon.png"
 
 [debug]
