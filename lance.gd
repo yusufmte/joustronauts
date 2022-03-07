@@ -5,21 +5,16 @@ export var reverse_speed = 1000
 export var forward_speed = 2000
 export var coef_of_friction = 5
 
-export var lance_type = ""
 var control_code = ""
-var orange_sketch = preload("res://lance_orange_sketch.png")
-var purple_sketch = preload("res://lance_purple_sketch.png")
 
 signal lanced
 
-func set_lance_type(new_type):
-	lance_type = new_type
-	if lance_type == "purple":
-		$Sprite.texture = purple_sketch
-		control_code = "P"
-	elif lance_type == "orange":
-		$Sprite.texture = orange_sketch
-		control_code = "O"
+# set up position and color of lance
+func setup(color,start_pos):
+	position = start_pos
+	name = color+"_lance"
+	$Sprite.texture = load("res://lance_"+color+"_sketch.png")
+	control_code = color[0].to_upper()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,6 +50,6 @@ func _physics_process(delta):
 
 func _on_Core_body_entered(body):
 	#if the other lance enters the core, emit lanced signal
-	if (lance_type == "orange" and body.name == "purple_lance") or (lance_type == "purple" and body.name == "orange_lance"):
+	if (name == "orange_lance" and body.name == "purple_lance") or (name == "purple_lance" and body.name == "orange_lance"):
 		$Sprite.modulate = $Sprite.modulate * 0.6
 		emit_signal("lanced")
