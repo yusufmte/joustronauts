@@ -1,5 +1,19 @@
 extends RigidBody2D
 
+export var lance_type : int
+
+var lance_textures = {
+	Global.LanceType.PURPLE : preload("res://lance_purple_sketch.png"),
+	Global.LanceType.ORANGE : preload("res://lance_orange_sketch.png")
+}
+
+var lance_control_codes = {
+	Global.LanceType.PURPLE : "P",
+	Global.LanceType.ORANGE : "O"
+}
+
+var control_code = ""
+
 export var rotational_speed = 350.0
 export var reverse_max_speed = 250.0
 export var forward_max_speed = 500.0
@@ -7,8 +21,6 @@ export var coef_of_friction = 5.0
 
 var reverse_thrust : float
 var forward_thrust : float
-
-var control_code = ""
 
 signal lanced
 
@@ -35,11 +47,11 @@ func _ready():
 	set_forward_max_speed(forward_max_speed)
 
 # set up position and color of lance
-func setup(color,start_pos):
+func setup(new_lance_type,start_pos):
 	position = start_pos
-	name = color+"_lance"
-	$Sprite.texture = load("res://lance_"+color+"_sketch.png")
-	control_code = color[0].to_upper()
+	lance_type = new_lance_type
+	$Sprite.texture = lance_textures[lance_type]
+	control_code = lance_control_codes[lance_type]
 
 # rotate when rotation keys are pressed
 func rotate(delta):
@@ -71,6 +83,6 @@ func _physics_process(delta):
 
 func _on_Core_body_entered(body):
 	#if the other lance enters the core, emit "lanced" signal
-	if (name == "orange_lance" and body.name == "purple_lance") or (name == "purple_lance" and body.name == "orange_lance"):
+	if body.lance_type != lance_type: # FIND A WAY TO CHECK THAT THE BODY IS ACTUALLY A LANCE
 		$Sprite.modulate = $Sprite.modulate * 0.6
 		emit_signal("lanced")

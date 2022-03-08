@@ -14,6 +14,10 @@ config/name="Joustronauts"
 run/main_scene="res://Joust.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [debug]
 
 settings/fps/force_fps=48
