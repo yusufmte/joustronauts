@@ -15,9 +15,9 @@ var lance_control_codes = {
 var control_code = ""
 
 export var rotational_speed = 350.0
-export var reverse_max_speed = 250.0
-export var forward_max_speed = 500.0
-export var coef_of_friction = 5.0
+export var reverse_max_speed = 250.0 setget set_reverse_max_speed
+export var forward_max_speed = 500.0 setget set_forward_max_speed
+export var coef_of_friction = 5.0 setget set_coef_of_friction
 
 var reverse_thrust : float
 var forward_thrust : float
