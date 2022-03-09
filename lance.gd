@@ -82,7 +82,7 @@ func _physics_process(delta):
 	apply_friction(delta)
 
 func _on_Core_body_entered(body):
-	#if the other lance enters the core, emit "lanced" signal
-	if body.lance_type != lance_type: # FIND A WAY TO CHECK THAT THE BODY IS ACTUALLY A LANCE
+	#if the body that enters the core is a lance of a different type, emit "lanced" signal
+	if body is get_script() and body.lance_type != lance_type:
 		$Sprite.modulate = $Sprite.modulate * 0.6
 		emit_signal("lanced")
