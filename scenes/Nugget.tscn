@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://nugget.png" type="Texture" id=1]
+[ext_resource path="res://art/nugget/nugget.png" type="Texture" id=1]
 
 [node name="Nugget" type="Node2D"]
 position = Vector2( 157, 100 )

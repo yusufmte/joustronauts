@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://lance_purple_sketch.png" type="Texture" id=1]
-[ext_resource path="res://lance.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Lance.gd" type="Script" id=1]
+[ext_resource path="res://art/lance_purple_sketch.png" type="Texture" id=2]
 
 [node name="Lance" type="RigidBody2D"]
 position = Vector2( 489, 269 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -30 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="ShaftCollisionPoly" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, -30 )

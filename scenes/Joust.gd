@@ -1,6 +1,6 @@
 extends Node2D
 
-var lance = preload("res://lance.tscn")
+var lance = preload("res://scenes/Lance.tscn")
 var orange_lance = lance.instance()
 var purple_lance = lance.instance()
 

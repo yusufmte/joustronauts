@@ -3,8 +3,8 @@ extends RigidBody2D
 export var lance_type : int
 
 var lance_textures = {
-	Global.LanceType.PURPLE : preload("res://lance_purple_sketch.png"),
-	Global.LanceType.ORANGE : preload("res://lance_orange_sketch.png")
+	Global.LanceType.PURPLE : preload("res://art/lance_purple_sketch.png"),
+	Global.LanceType.ORANGE : preload("res://art/lance_orange_sketch.png")
 }
 
 var lance_control_codes = {
