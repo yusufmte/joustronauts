@@ -18,18 +18,16 @@ animations = [ {
 "speed": 9.0
 } ]
 
-[node name="Nugget" type="Node2D"]
+[node name="Nugget" type="Area2D"]
 position = Vector2( 157, 100 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 
+[node name="CollisionHex" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -8, -14, -15, 0, -8, 14, 8, 14, 15, 0, 8, -14 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "spin"
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionHex" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( -8, -14, -15, 0, -8, 14, 8, 14, 15, 0, 8, -14 )

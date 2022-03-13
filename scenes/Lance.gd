@@ -2,6 +2,8 @@ extends RigidBody2D
 
 export var lance_type : int
 
+const Nugget = preload("res://scenes/Nugget.gd")
+
 var lance_textures = {
 	Global.LanceType.PURPLE : preload("res://art/lance_purple_sketch.png"),
 	Global.LanceType.ORANGE : preload("res://art/lance_orange_sketch.png")
@@ -42,6 +44,8 @@ func set_coef_of_friction(new_value):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Core.connect("body_entered",self,"_on_Core_body_entered")
+	$LanceArea.connect("area_entered",self,"_on_area_entered")
 	gravity_scale = 0
 	set_reverse_max_speed(reverse_max_speed)
 	set_forward_max_speed(forward_max_speed)
@@ -86,3 +90,7 @@ func _on_Core_body_entered(body):
 	if body is get_script() and body.lance_type != lance_type:
 		$Sprite.modulate = $Sprite.modulate * 0.6
 		emit_signal("lanced")
+
+func _on_area_entered(area):
+	if area is Nugget:
+		print("lol, you touched a nugget!")
