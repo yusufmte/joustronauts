@@ -5,6 +5,7 @@
 
 [node name="Lance" type="RigidBody2D"]
 position = Vector2( 489, 269 )
+z_index = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
