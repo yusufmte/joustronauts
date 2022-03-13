@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://art/nugget/2.png" type="Texture" id=1]
 [ext_resource path="res://art/nugget/0.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://art/nugget/3.png" type="Texture" id=6]
 [ext_resource path="res://art/nugget/5.png" type="Texture" id=7]
 [ext_resource path="res://art/nugget/4.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Nugget.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,14 +20,13 @@ animations = [ {
 
 [node name="Nugget" type="Node2D"]
 position = Vector2( 157, 100 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 5
-playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
