@@ -14,7 +14,7 @@
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "default",
+"name": "spin",
 "speed": 9.0
 } ]
 
@@ -27,6 +27,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+animation = "spin"
 
 [node name="Area2D" type="Area2D" parent="."]
 
