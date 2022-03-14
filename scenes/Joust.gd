@@ -24,12 +24,16 @@ func _ready():
 		add_child(lance)
 		var lance_type = Global.LanceType[Global.LanceType.keys()[lances.find(lance)]]
 		lance.setup(lance_type,lance_start_positions[lance_type])
-		lance.connect("lanced",self,"_on_Lanced",[Global.Lance_Name[lance_type]])
+		lance.connect("lanced",self,"_on_lanced",[Global.Lance_Name[lance_type]])
+		lance.connect("nug_get",self,"_on_nug_get",[lance, Global.Lance_Name[lance_type]])
 
 	add_child(nugget_summoner)
 	nugget_summoner.spawn_range_topleft = Vector2(0,0)
 	nugget_summoner.spawn_range_botright = screen_size
 	nugget_summoner.start_summoning()
 	
-func _on_Lanced(lanced_lance):
+func _on_lanced(lanced_lance):
 	print("oh no, "+lanced_lance+" has been lanced!")
+
+func _on_nug_get(lance, lance_name):
+	print(lance_name+" nuggets: "+str(lance.nugs_owned))

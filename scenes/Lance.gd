@@ -24,7 +24,7 @@ export var coef_of_friction = 5.0 setget set_coef_of_friction
 var reverse_thrust : float
 var forward_thrust : float
 
-export var nuggets_owned : int = 0
+export var nugs_owned : int = 0
 
 signal lanced
 signal nug_get
@@ -99,5 +99,5 @@ func _on_Core_body_entered(body):
 func _on_area_entered(area):
 	if area is Nugget:
 		area.become_acquired()
-		nuggets_owned += 1
+		nugs_owned += 1
 		emit_signal("nug_get")
