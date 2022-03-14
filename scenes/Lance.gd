@@ -24,7 +24,10 @@ export var coef_of_friction = 5.0 setget set_coef_of_friction
 var reverse_thrust : float
 var forward_thrust : float
 
+export var nuggets_owned : int = 0
+
 signal lanced
+signal nug_get
 
 # recalculates reverse thrust as well
 func set_reverse_max_speed(new_value):
@@ -44,7 +47,9 @@ func set_coef_of_friction(new_value):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+# warning-ignore:return_value_discarded
 	$Core.connect("body_entered",self,"_on_Core_body_entered")
+# warning-ignore:return_value_discarded
 	$LanceArea.connect("area_entered",self,"_on_area_entered")
 	gravity_scale = 0
 	set_reverse_max_speed(reverse_max_speed)
@@ -93,4 +98,6 @@ func _on_Core_body_entered(body):
 
 func _on_area_entered(area):
 	if area is Nugget:
-		print("lol, you touched a nugget!")
+		area.become_acquired()
+		nuggets_owned += 1
+		emit_signal("nug_get")
