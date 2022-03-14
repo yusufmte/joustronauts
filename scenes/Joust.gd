@@ -1,8 +1,8 @@
 extends Node2D
 
-var lance = preload("res://scenes/Lance.tscn")
-var orange_lance = lance.instance()
-var purple_lance = lance.instance()
+var lance_scene = preload("res://scenes/Lance.tscn")
+var lances = []
+var num_lances = 2
 var nugget_summoner = preload("res://scenes/NuggetSummoner.tscn").instance()
 
 var lance_start_positions = {
@@ -17,14 +17,15 @@ func _ready():
 	randomize()
 	screen_size = get_viewport_rect().size
 	
-	add_child(orange_lance)
-	orange_lance.setup(Global.LanceType.ORANGE,lance_start_positions[Global.LanceType.ORANGE])
-	orange_lance.connect("lanced",self,"_on_Lanced",["orange"])
+	for _i in range(num_lances):
+		lances.append(lance_scene.instance())
 	
-	add_child(purple_lance)
-	purple_lance.setup(Global.LanceType.PURPLE,lance_start_positions[Global.LanceType.PURPLE])
-	purple_lance.connect("lanced",self,"_on_Lanced",["purple"])
-	
+	for lance in lances:
+		add_child(lance)
+		var lance_type = Global.LanceType[Global.LanceType.keys()[lances.find(lance)]]
+		lance.setup(lance_type,lance_start_positions[lance_type])
+		lance.connect("lanced",self,"_on_Lanced",[Global.Lance_Name[lance_type]])
+
 	add_child(nugget_summoner)
 	nugget_summoner.spawn_range_topleft = Vector2(0,0)
 	nugget_summoner.spawn_range_botright = screen_size
