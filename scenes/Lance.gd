@@ -5,8 +5,8 @@ export var lance_type : int
 const Nugget = preload("res://scenes/Nugget.gd")
 
 var lance_textures = {
-	Global.LanceType.PURPLE : preload("res://art/lance_purple_sketch.png"),
-	Global.LanceType.ORANGE : preload("res://art/lance_orange_sketch.png")
+	Global.LanceType.PURPLE : preload("res://art/lance_purple.png"),
+	Global.LanceType.ORANGE : preload("res://art/lance_orange.png")
 }
 
 var lance_control_codes = {
