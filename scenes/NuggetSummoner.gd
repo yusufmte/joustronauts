@@ -2,8 +2,6 @@ extends Node
 
 var nugget = preload("res://scenes/Nugget.tscn")
 export var nuggets = []
-export var spawn_range_topleft = Vector2(100,100)
-export var spawn_range_botright = Vector2(400,300)
 
 export var nug_spawn_rate = 3.0 setget set_nug_spawn_rate
 export var nug_spawn_rate_uncertainty = 2.0 setget set_nug_spawn_rate_uncertainty
@@ -39,5 +37,5 @@ func _on_nug_timer_timeout():
 func summon_nugget():
 	nuggets.append(nugget.instance())
 	add_child(nuggets[-1])
-	nuggets[-1].position = Vector2(rand_range(spawn_range_topleft.x,spawn_range_botright.x),rand_range(spawn_range_topleft.y,spawn_range_botright.y))
+	nuggets[-1].position = Vector2(rand_range($spawnbox/topleft.position.x,$spawnbox/botright.position.x),rand_range($spawnbox/topleft.position.y,$spawnbox/botright.position.y))
 

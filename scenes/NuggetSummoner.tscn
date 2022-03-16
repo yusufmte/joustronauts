@@ -2,5 +2,13 @@
 
 [ext_resource path="res://scenes/NuggetSummoner.gd" type="Script" id=1]
 
-[node name="Node" type="Node"]
+[node name="NuggetSummoner" type="Node"]
 script = ExtResource( 1 )
+
+[node name="spawnbox" type="Node" parent="."]
+
+[node name="topleft" type="Node2D" parent="spawnbox"]
+position = Vector2( 61, 61 )
+
+[node name="botright" type="Node2D" parent="spawnbox"]
+position = Vector2( 965, 539 )

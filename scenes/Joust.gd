@@ -28,8 +28,6 @@ func _ready():
 		lance.connect("nug_get",self,"_on_nug_get",[lance, Global.Lance_Name[lance_type]])
 
 	add_child(nugget_summoner)
-	nugget_summoner.spawn_range_topleft = Vector2(0,0)
-	nugget_summoner.spawn_range_botright = screen_size
 	nugget_summoner.start_summoning()
 	
 func _on_lanced(lanced_lance):
