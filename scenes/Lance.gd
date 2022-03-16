@@ -56,8 +56,9 @@ func _ready():
 	set_forward_max_speed(forward_max_speed)
 
 # set up position and color of lance
-func setup(new_lance_type,start_pos):
+func setup(new_lance_type,start_pos,new_rot):
 	position = start_pos
+	rotation = new_rot
 	lance_type = new_lance_type
 	$Sprite.texture = lance_textures[lance_type]
 	control_code = lance_control_codes[lance_type]
