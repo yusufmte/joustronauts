@@ -1,6 +1,4 @@
 .import/
-art/lance_orange_sketch.png.import
-art/lance_purple_sketch.png.import
 art/nugget/0.png.import
 art/nugget/1.png.import
 art/nugget/2.png.import
@@ -12,9 +10,5 @@ art/nugget/7.png.import
 lance_orange.png.import
 lance_purple.png.import
 ideas_and_help_draft.txt
-art/cornerpiece/0.png.import
-art/cornerpiece/1.png.import
-art/cornerpiece/2.png.import
-art/wall/0.png.import
-art/wall/1.png.import
-art/wall/2.png.import
+art/cornerpiece.png.import
+art/wall.png.import

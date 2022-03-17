@@ -12,6 +12,10 @@ func _ready():
 	randomize()
 	screen_size = get_viewport_rect().size
 	
+	for anim_sprite in $boundary_wall/sprites.get_children():
+		if anim_sprite is AnimatedSprite:
+			anim_sprite.play()
+	
 	for _i in range(num_lances):
 		lances.append(lance_scene.instance())
 	

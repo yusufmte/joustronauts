@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Joust.gd" type="Script" id=1]
+[ext_resource path="res://art/cornerpiece.png" type="Texture" id=2]
+[ext_resource path="res://art/wall.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 569.5, 31 )
+extents = Vector2( 490, 7.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 36, 360 )
+extents = Vector2( 7.5, 277.5 )
 
 [node name="Joust" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,20 +16,63 @@ script = ExtResource( 1 )
 [node name="boundary_wall" type="StaticBody2D" parent="."]
 
 [node name="top" type="CollisionShape2D" parent="boundary_wall"]
-position = Vector2( 515.5, -31 )
+position = Vector2( 512, 29.5 )
 shape = SubResource( 1 )
 
 [node name="bottom" type="CollisionShape2D" parent="boundary_wall"]
-position = Vector2( 504.25, 631 )
+position = Vector2( 504.25, 570 )
 shape = SubResource( 1 )
 
 [node name="left" type="CollisionShape2D" parent="boundary_wall"]
-position = Vector2( -36, 302 )
+position = Vector2( 30, 299.5 )
 shape = SubResource( 2 )
 
 [node name="right" type="CollisionShape2D" parent="boundary_wall"]
-position = Vector2( 1060, 306 )
+position = Vector2( 994.5, 306 )
 shape = SubResource( 2 )
+
+[node name="sprites" type="Node" parent="boundary_wall"]
+
+[node name="topleft" type="Sprite" parent="boundary_wall/sprites"]
+position = Vector2( 19, 19 )
+texture = ExtResource( 2 )
+
+[node name="top" type="Sprite" parent="boundary_wall/sprites"]
+position = Vector2( 512.047, 30 )
+rotation = 1.5708
+scale = Vector2( 1, 59.2559 )
+texture = ExtResource( 6 )
+
+[node name="topright" type="Sprite" parent="boundary_wall/sprites"]
+position = Vector2( 1005, 19 )
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="right" type="Sprite" parent="boundary_wall/sprites"]
+position = Vector2( 994, 300 )
+scale = Vector2( 1, 32.7529 )
+texture = ExtResource( 6 )
+
+[node name="botright" type="Sprite" parent="boundary_wall/sprites"]
+position = Vector2( 1005, 581 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="bot" type="Sprite" parent="boundary_wall/sprites"]
+position = Vector2( 512.047, 570 )
+rotation = 1.5708
+scale = Vector2( 1, 59.2559 )
+texture = ExtResource( 6 )
+
+[node name="botleft" type="Sprite" parent="boundary_wall/sprites"]
+position = Vector2( 19, 581 )
+rotation = -1.5708
+texture = ExtResource( 2 )
+
+[node name="left" type="Sprite" parent="boundary_wall/sprites"]
+position = Vector2( 30, 300.024 )
+scale = Vector2( 1, 32.7529 )
+texture = ExtResource( 6 )
 
 [node name="lance_spawns" type="Node" parent="."]
 
